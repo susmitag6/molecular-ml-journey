@@ -18,10 +18,10 @@ Day1-21.09.2026
 
 3. I revisited several important molecular descriptors, including:
 
-   * **LogP** — a measure related to lipophilicity/hydrophobicity and molecular partitioning between aqueous and nonpolar environments.
-   * **TPSA (Topological Polar Surface Area)** — a descriptor of the polar surface contribution of a molecule.
-   * **HBD/HBA (Hydrogen-Bond Donors/Acceptors)** — descriptors related to a molecule's ability to participate in hydrogen-bonding interactions.
-   * **Rotatable bonds** — a simple measure related to molecular flexibility.
+   * **LogP** : a measure related to lipophilicity/hydrophobicity and molecular partitioning between aqueous and nonpolar environments.
+   * **TPSA (Topological Polar Surface Area)**:  a descriptor of the polar surface contribution of a molecule.
+   * **HBD/HBA (Hydrogen-Bond Donors/Acceptors)** : descriptors related to a molecule's ability to participate in hydrogen-bonding interactions.
+   * **Rotatable bonds** : a simple measure related to molecular flexibility.
 
 4. I began to understand how these physicochemical properties are relevant to **drug-like behavior**, including aqueous solubility, oral absorption, membrane permeability, and the ability of some molecules to cross the **blood–brain barrier (BBB)**. Rather than being controlled by a single descriptor, these behaviors depend on a combination of molecular properties such as lipophilicity, polarity, hydrogen bonding, molecular size, flexibility, and ionization state.
 
