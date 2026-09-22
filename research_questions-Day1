@@ -10,3 +10,9 @@ Day-2
 
 How does this mutation alter the protein's conformational ensemble, and does that change ligand binding or drug response? 
 That's where my simulation background could give you a distinctive perspective rather than simply  running standard bioinformatics pipelines.
+
+Day-3
+How reliably does proximity in a low-dimensional visualization of molecular fingerprints reflect similarity in the original molecular representation?
+
+
+How does molecular similarity to the training set relate to prediction error and model uncertainty?
