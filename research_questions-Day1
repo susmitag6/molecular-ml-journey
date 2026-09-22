@@ -5,6 +5,7 @@ RDKit LogP descriptor is not just an arbitrary  number, it ultimately connects b
 How can omics/NGS-derived information about disease-associated genes, proteins, and variants be integrated with structural modeling, molecular simulation, and molecular ML for drug discovery?
 Can ML identify heterogeneous dynamical states or response regimes that conventional order parameters obscure?
 
+Day-2
 2D representations versus MD-derived ensemble information:
 
 How does this mutation alter the protein's conformational ensemble, and does that change ligand binding or drug response? 
