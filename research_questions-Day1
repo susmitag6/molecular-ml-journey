@@ -3,3 +3,4 @@ Can MD-derived descriptors provide information about solvation and conformationa
 RDKit LogP descriptor is not just an arbitrary ML number, it ultimately connects back to free-energy differences between molecular environments.
 
 How can omics/NGS-derived information about disease-associated genes, proteins, and variants be integrated with structural modeling, molecular simulation, and molecular ML for drug discovery?
+Can ML identify heterogeneous dynamical states or response regimes that conventional order parameters obscure?
