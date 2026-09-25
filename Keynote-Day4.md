@@ -80,6 +80,40 @@ For example:
 
 After aggregation, the dataset contained 6,288 unique molecules.
 
+[
+IC_{50}>10000;nM
+]
+
+is not an exact IC50 measurement. It only tells us that the true value is greater than 10000 nM. After transformation:
+
+$$
+pIC_{50}<5.
+$$
+
+Therefore, this is a censored measurement rather than an exact regression label.
+
+I also observed that the same molecule can have substantially different reported IC50 values. This can arise from differences in assays, experimental conditions, biological context, measurement uncertainty, or other sources of heterogeneity.
+
+Therefore:
+
+$$
+\boxed{\text{Data cleaning requires scientific understanding, not only programming.}}
+$$
+
+Connection to Previous Days
+
+Day 3 taught me how to construct a molecular representation:
+
+$$
+\text{SMILES}\rightarrow\text{Morgan fingerprint}\rightarrow X.
+$$
+
+Day 4 taught me how to construct the experimental target:
+
+$$
+\text{ChEMBL activity}\rightarrow\text{clean IC50}\rightarrow pIC50\rightarrow y.
+$$
+
 
 The main data-preparation steps were:X
 $$
