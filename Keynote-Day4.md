@@ -120,6 +120,14 @@ $$
 \text{ChEMBL activity}\rightarrow\text{clean IC50}\rightarrow pIC50\rightarrow y.
 $$
 
+Therefore, I now have both components needed for supervised molecular machine learning:
+
+[
+\boxed{X\rightarrow y}
+]
+
+
+
 
 The main data-preparation steps were:X
 $$
