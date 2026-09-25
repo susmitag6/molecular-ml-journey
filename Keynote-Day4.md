@@ -80,9 +80,15 @@ For example:
 
 After aggregation, the dataset contained 6,288 unique molecules.
 
-[
+## Important Data-Curation Lessons
+
+A database value being present does not automatically mean that it is suitable for machine learning.
+
+For example:
+
+$$
 IC_{50}>10000;nM
-]
+$$
 
 is not an exact IC50 measurement. It only tells us that the true value is greater than 10000 nM. After transformation:
 
