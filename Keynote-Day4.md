@@ -15,8 +15,24 @@ Some important bioactivity measurements are:
 
 An important point is that Kd, Ki, and IC50 are different experimental quantities and should not automatically be mixed together as the same ML target.
 
-For IC50 data, I learned to transform concentration into:
+For IC50 data, I learned to transform concentration into potency:
 
-[
+$$
 pIC_{50}=-\log_{10}(IC_{50}[M])
-]
+$$
+
+Therefore, lower IC50 corresponds to higher pIC50 and generally indicates greater inhibitory potency in that assay.
+
+## Molecular ML Representation
+
+The workflow is:
+
+$$
+\text{Ligand SMILES}
+\rightarrow
+\text{RDKit molecule}
+\rightarrow
+\text{Morgan fingerprint}
+\rightarrow
+X
+$$
