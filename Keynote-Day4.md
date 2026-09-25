@@ -28,11 +28,58 @@ Therefore, lower IC50 corresponds to higher pIC50 and generally indicates greate
 The workflow is:
 
 $$
-\text{Ligand SMILES}
-\rightarrow
-\text{RDKit molecule}
-\rightarrow
-\text{Morgan fingerprint}
-\rightarrow
-X
+\text{Ligand SMILES} \rightarrow \text{RDKit molecule} \rightarrow \text{Morgan fingerprint} \rightarrow IC_{50} \rightarrow pIC_{50} \rightarrow y
+$$
+
+$$
+X\rightarrow y
+$$
+or
+$$
+\text{ligand molecular structure} \rightarrow \text{predicted inhibitory potency}.
+$$
+
+## ChEMBL Data Preparation
+
+I used ChEMBL to obtain experimental bioactivity data.
+
+For this project, I selected:
+
+Target: Human acetylcholinesterase (AChE)
+
+ChEMBL ID: CHEMBL220
+
+Target type: SINGLE PROTEIN
+
+Organism: Homo sapiens
+
+The objective is to predict ligand activity against this fixed protein target.
+The main data-preparation steps were:
+
+* Search ChEMBL for acetylcholinesterase.
+* Select the human single-protein target rather than acetylcholinesterase from another organism.
+* Retrieve IC50 activity records for CHEMBL220.
+* Keep IC50 measurements rather than mixing IC50 with Ki, Kd, EC50, etc.
+* Inspect standard_relation and keep exact (=) measurements for this first regression dataset.
+* Inspect and standardize concentration units. For this project, I retained measurements reported in nM.
+* Check for missing SMILES and activity values.
+* Convert IC50 values into pIC50.
+* Compare the calculated pIC50 values with ChEMBL's pChEMBL values as a sanity check.
+* Examine repeated measurements for the same ligand.
+* Aggregate repeated measurements using the median pIC50 to obtain one activity label per molecule.
+* Validate molecular SMILES with RDKit.
+* Save the cleaned dataset as a CSV file.
+
+After aggregation, the dataset contained 6,288 unique molecules.
+
+Important Data-Curation Lessons
+
+A database value being present does not automatically mean that it is suitable for machine learning.
+
+For example:
+
+After aggregation, the dataset contained 6,288 unique molecules.
+
+
+The main data-preparation steps were:X
 $$
