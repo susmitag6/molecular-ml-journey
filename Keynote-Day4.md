@@ -122,12 +122,9 @@ $$
 
 Therefore, I now have both components needed for supervised molecular machine learning:
 
-[
-\boxed{X\rightarrow y}
-]
-
-
-
+$$
+\boxed{X\rightarrow y}.
+$$
 
 The main data-preparation steps were:X
 $$
