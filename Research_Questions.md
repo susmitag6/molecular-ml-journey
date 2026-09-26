@@ -26,7 +26,7 @@ $$
 electron \rightarrow atoms \rightarrow molecular conformations \rightarrow kinetics \rightarrow binding activity \rightarrow biological response
 $$
 
-My question about the application of TITO?
+My question about the application of TITO (Transferable Implicit Transfer Operators)?
 How does the learned transition operator relate to an MSM transfer operator?
 Does it preserve stationary distributions?
 Does it reproduce slow implied timescales? What happens to metastable-state populations?
