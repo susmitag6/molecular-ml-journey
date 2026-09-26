@@ -18,3 +18,16 @@ How reliably does proximity in a low-dimensional visualization of molecular fing
 How does molecular similarity to the training set relate to prediction error and model uncertainty?
 
 Day-4
+
+Day-5
+AI-driven multiscale modeling
+
+$$
+electron \rightarrow atoms \rightarrow molecular conformations \rightarrow kinetics \rightarrow binding activity \rightarrow biological response
+$$
+
+My question about the application of TITO?
+How does the learned transition operator relate to an MSM transfer operator?
+Does it preserve stationary distributions?
+Does it reproduce slow implied timescales? What happens to metastable-state populations?
+Can it reproduce rare transitions and heterogeneous dynamics? When does Markovianity break down as lag time changes?
