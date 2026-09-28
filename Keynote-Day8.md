@@ -76,7 +76,8 @@ Model complexity should be selected according to performance on unseen validatio
 ## Model parameters vs hyperparameters 
 * Model Parameters : Parameters are learned from the training data
 * Hyperparameters : hyperparameters are choices controlling the learning process/model
-I identified the max depth, number of trees, regularziation strength as hyparameters 
+I identified the max depth, number of trees, regularziation strength as hyparameters
+
 $$
 \text{Train} \xrightarrow{\text{learn}} \text{parameters}
 $$
@@ -85,6 +86,12 @@ $$
 \text{Validation} \xrightarrow{\text{choose}} \text{hyperparameters/model}
 $$
 
+$$
+\boxed{\text{CV mean} \rightarrow \text{typical estimated validation performance}}
+$$
+
+$$
+\boxed{\text{CV standard deviation} \rightarrow \text{stability of that performance across folds}}
 $$
 \text{Test} \xrightarrow{\text{evaluate}} \text{final generalization}
 $$
