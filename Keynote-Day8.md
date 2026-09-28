@@ -1,4 +1,4 @@
-# Day 8 — Classical ML, Bias–Variance, and Cross-Validation
+# Day 8 - Classical ML, Bias–Variance, and Cross-Validation
 
 Today I covered the following concepts:
 
