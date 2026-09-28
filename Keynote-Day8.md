@@ -44,4 +44,12 @@ $$
 \text{irreducible noise} \Rightarrow \text{experimental variability in measured bioactivity}
 \end{aligned}
 $$
+
+To understand the Bias-Variance Trade off we need to track all three conditions:
+
 $$
+\text{Train Performance} + \text{Test Performance} + \text{Generalization gap}
+$$
+
+# Learned about how the model parameter influence the model performance
+A Random Forest is a collection of decision trees. The depth is how many successive decision rules a tree can make from its root down to a prediction.
