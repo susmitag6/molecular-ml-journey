@@ -17,7 +17,8 @@ $$
 \text{RF / Extra Trees} \rightarrow \text{structure information + nonlinear interactions}
 $$
 
-## Bias - Variance Trade off
+# Bias - Variance Trade off
+
 $$
 \text{Bias} = \text{Sysmetic error in the Learning Procedure}
 $$
