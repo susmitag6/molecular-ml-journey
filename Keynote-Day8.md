@@ -54,3 +54,15 @@ $$
 we'd choose hyperparameters based on validation performance, not training performance.
 # Learned about how the model parameter influence the model performance
 A Random Forest is a collection of decision trees. The depth is how many successive decision rules a tree can make from its root down to a prediction.
+
+we'd choose hyperparameters based on validation performance, not training performance.
+
+$$
+\text{underfitting} \rightarrow \boxed{\text{useful complexity}} \rightarrow \text{overfitting}
+$$
+Model complexity should be selected according to performance on unseen validation data, not according to how well the model fits its training data.
+
+## Model parameters vs hyperparameters 
+* Model Parameters : Parameters are learned from the training data
+* Hyperparameters : hyperparameters are choices controlling the learning process/model
+I identified the max depth as hyparameters
