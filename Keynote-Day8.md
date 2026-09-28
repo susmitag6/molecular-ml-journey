@@ -1,3 +1,14 @@
+
+Today I have covered the foloowing concepts:
+* Baseline: DummyRegressor — why a model must beat a trivial predictor.
+* Ridge regression: additive/linear mapping from Morgan bits to pIC50 and the role of regularization \(\alpha\).
+* Tree ensembles: Random Forest vs Extra Trees and nonlinear feature interactions.
+* Bias–variance: bias as systematic error across possible training samples; variance as sensitivity to the particular training sample.
+* Underfitting vs overfitting: interpreted using train and test performance together.
+* Model complexity: experimentally varied RF max_depth.
+* Parameters vs hyperparameters: learned coefficients/tree structure vs choices such as alpha and max_depth.
+* Train / validation / test: why validation is used for model selection and the final test set should remain untouched.
+
 ## Classical ML
 * Ridge regression assumes an approximately linear, additive relationship between Morgan fingerprint features and bioactivity. If molecular environments A and B are present, their contributions are essentially added through their coefficients.
 * Random Forest can model nonlinear interactions. The influence of environment A can depend on whether environments B or C are also present, allowing the model to capture more complicated structure–activity relationships.
@@ -65,4 +76,15 @@ Model complexity should be selected according to performance on unseen validatio
 ## Model parameters vs hyperparameters 
 * Model Parameters : Parameters are learned from the training data
 * Hyperparameters : hyperparameters are choices controlling the learning process/model
-I identified the max depth as hyparameters
+I identified the max depth, number of trees, regularziation strength as hyparameters 
+$$
+\text{Train} \xrightarrow{\text{learn}} \text{parameters}
+$$
+
+$$
+\text{Validation} \xrightarrow{\text{choose}} \text{hyperparameters/model}
+$$
+
+$$
+\text{Test} \xrightarrow{\text{evaluate}} \text{final generalization}
+$$
