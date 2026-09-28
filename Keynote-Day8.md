@@ -34,3 +34,14 @@ $$
 $$
 \text{expected prediction error} = \text{bias}^2+\text{variance}+\text{irreducible noise}.
 $$
+
+For my ChEMBL IC50 dataset where biological assays themselves contain experimental variability, the cause of bias, variance and ireeducible noise as foloowing:
+
+$$
+\begin{aligned}
+\text{bias} \Rightarrow \text{model/representation is too restrictiv} \\
+\text{variance} \Rightarrow \text{the learned relationship changes strongly with the particular training molecules} \\
+\text{irreducible noise} \Rightarrow \text{experimental variability in measured bioactivity}
+\end{aligned}
+$$
+$$
