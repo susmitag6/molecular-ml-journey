@@ -1,4 +1,4 @@
-# Day 3 — 23.09.2026
+# Day 3 - 23.09.2026
 
 ## From Molecular Simulation to Molecular ML
 
