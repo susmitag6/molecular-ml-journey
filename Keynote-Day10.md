@@ -1,4 +1,4 @@
-# Day 10 — Hyperparameter Tuning
+# Day 10 - Hyperparameter Tuning
 **30 September 2026**
 
 ## Learning objectives
