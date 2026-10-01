@@ -11,7 +11,7 @@ I expect scaffold-aware CV to produce a lower mean R² than random CV because it
 
 Random CV can place molecules from the same scaffold family in both training and validation partitions, potentially making the prediction task easier. Scaffold-aware CV prevents exact scaffold overlap within each fold.
 
-## Experiment 1 — Random versus scaffold-aware cross-validation
+## Experiment 1 : Random versus scaffold-aware cross-validation
 
 I evaluated the same Random Forest model using count Morgan fingerprints and two five-fold cross-validation strategies.
 
@@ -38,7 +38,7 @@ Requiring unseen Murcko scaffolds made the prediction task more challenging for 
 
 However, scaffold separation does not guarantee low fingerprint similarity: molecules with different Murcko scaffolds can still have highly similar Morgan fingerprints.
 
-## Experiment 2 — Scaffold-aware hyperparameter tuning
+## Experiment 2 : Scaffold-aware hyperparameter tuning
 
 I used `GridSearchCV` with five-fold scaffold-aware CV to compare maximum tree depths of 10, 20 and None, and minimum leaf sizes of 1, 2 and 5.
 
