@@ -41,7 +41,7 @@ These thresholds are operational choices for this analysis and should not be int
 
 Before performing the calculation, I predicted that approximately 500 candidate pairs might satisfy these criteria.
 
-## Experiment 1 — Identifying Candidate Activity Cliffs
+## Experiment 1: Identifying Candidate Activity Cliffs
 
 Using binary radius-2 Morgan fingerprints for the 6,287 AChE molecules, I searched for molecular pairs satisfying both thresholds.
 
@@ -121,7 +121,7 @@ A binary Morgan fingerprint records whether an encoded local environment is pres
 
 Count Morgan fingerprints retain the multiplicity of these environments. Therefore, differences in repeated environments along the carbon chains can distinguish these two molecules even when their binary fingerprints are identical.
 
-## Experiment 3 — Physicochemical Descriptors
+## Experiment 3 - Physicochemical Descriptors
 
 I calculated four additional molecular descriptors for the pair.
 
