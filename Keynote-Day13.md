@@ -57,27 +57,27 @@ I next tested whether molecules with higher maximum training similarity tended t
 
 My hypothesis was:
 
-\[
+$$
 \text{higher similarity}
 \rightarrow
 \text{lower prediction error}
-\]
+$$
 
 ### Results
 
-\[
+$$
 r_{\mathrm{Pearson}}=-0.207
-\]
+$$
 
-\[
+$$
 \rho_{\mathrm{Spearman}}=-0.143
-\]
+$$
 
 with:
 
-\[
+$$
 p_{\mathrm{Spearman}}\approx3.6\times10^{-7}
-\]
+$$
 
 Both correlations were negative, supporting the expected direction.
 
@@ -93,12 +93,12 @@ A Random Forest prediction is the average prediction from many individual decisi
 
 For each test molecule, I calculated the standard deviation of the predictions from all 300 trees:
 
-\[
+$$
 \sigma_{\mathrm{trees}}
 =
 \mathrm{std}
 (\hat y_1,\hat y_2,\ldots,\hat y_{300})
-\]
+$$
 
 My initial hypothesis was that greater disagreement would correspond to larger prediction errors, but I expected the relationship to be relatively weak and perhaps similar to nearest-neighbor similarity.
 
@@ -115,19 +115,19 @@ I then compared tree disagreement with absolute prediction error.
 
 ### Results
 
-\[
+$$
 r_{\mathrm{Pearson}}=0.433
-\]
+$$
 
-\[
+$$
 \rho_{\mathrm{Spearman}}=0.437
-\]
+$$
 
 with:
 
-\[
+$$
 p_{\mathrm{Spearman}}\approx6.8\times10^{-60}
-\]
+$$
 
 Tree disagreement therefore showed a substantially stronger association with prediction error than nearest-training similarity did in this test set.
 
@@ -135,13 +135,13 @@ Greater disagreement among the Random Forest trees tended to correspond to large
 
 However:
 
-\[
+$$
 \boxed{
 \text{Model agreement}
 \neq
 \text{model correctness}
 }
-\]
+$$
 
 All trees use the same training data and molecular representation. If important information is absent from that representation, many trees could agree while still making an incorrect prediction.
 
@@ -160,7 +160,7 @@ To make the relationship easier to interpret, I divided the 1,258 test molecules
 
 The MAE increased monotonically:
 
-\[
+$$
 0.271
 <
 0.387
@@ -168,18 +168,18 @@ The MAE increased monotonically:
 0.561
 <
 0.840
-\]
+$$
 
 Before the experiment, I predicted that the highest-disagreement group might have approximately 1.5 times the MAE of the lowest-disagreement group.
 
 Instead, I observed:
 
-\[
+$$
 \frac{MAE_{Q4}}{MAE_{Q1}}
 =
 \frac{0.840}{0.271}
 \approx3.1
-\]
+$$
 
 Thus, the highest-disagreement quartile had approximately **3.1 times the MAE** of the lowest-disagreement quartile in this test set.
 
@@ -189,15 +189,15 @@ It does not establish that tree standard deviation is a calibrated prediction in
 
 For example, a prediction reported as:
 
-\[
+$$
 \hat{pIC50}=7.5,\qquad\sigma_{\mathrm{trees}}=0.5
-\]
+$$
 
 should not automatically be interpreted as:
 
-\[
+$$
 pIC50=7.5\pm0.5
-\]
+$$
 
 with a defined statistical coverage probability.
 
@@ -215,19 +215,17 @@ The two reliability indicators provided different information.
 
 For this experiment:
 
-\[
-\rho(\text{similarity},|\text{error}|)
-=
--0.143
-\]
+$$
+\rho(\text{similarity},|\text{error}|) = -0.143
+$$
 
 whereas:
 
-\[
+$$
 \rho(\text{tree disagreement},|\text{error}|)
 =
 +0.437
-\]
+$$
 
 Tree disagreement was therefore more informative about actual prediction error than nearest-neighbor similarity alone.
 
@@ -241,7 +239,7 @@ Activity-cliff analysis from Day 12 also showed that high structural similarity 
 
 A more informative assessment of prediction reliability should therefore consider multiple pieces of evidence:
 
-\[
+$$
 \boxed{
 \text{chemical-space familiarity}
 +
@@ -249,6 +247,6 @@ A more informative assessment of prediction reliability should therefore conside
 +
 \text{activity-cliff awareness}
 }
-\]
+$$
 
 The results also demonstrate an important distinction between **ranking predictions by apparent reliability** and constructing **calibrated uncertainty estimates**. Tree disagreement was useful for the former, but has not yet been demonstrated to provide the latter.
