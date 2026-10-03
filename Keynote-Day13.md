@@ -58,9 +58,7 @@ I next tested whether molecules with higher maximum training similarity tended t
 My hypothesis was:
 
 $$
-\text{higher similarity}
-\rightarrow
-\text{lower prediction error}
+\text{higher similarity} \rightarrow \text{lower prediction error}
 $$
 
 ### Results
@@ -96,8 +94,7 @@ For each test molecule, I calculated the standard deviation of the predictions f
 $$
 \sigma_{\mathrm{trees}}
 =
-\mathrm{std}
-(\hat y_1,\hat y_2,\ldots,\hat y_{300})
+\mathrm{std} (\hat y_1,\hat y_2,\ldots,\hat y_{300})
 $$
 
 My initial hypothesis was that greater disagreement would correspond to larger prediction errors, but I expected the relationship to be relatively weak and perhaps similar to nearest-neighbor similarity.
@@ -160,25 +157,13 @@ To make the relationship easier to interpret, I divided the 1,258 test molecules
 
 The MAE increased monotonically:
 
-$$
-0.271
-<
-0.387
-<
-0.561
-<
-0.840
-$$
+$$ 0.271 < 0.387 < 0.561 < 0.840 $$
 
 Before the experiment, I predicted that the highest-disagreement group might have approximately 1.5 times the MAE of the lowest-disagreement group.
 
 Instead, I observed:
 
-$$
-\frac{MAE_{Q4}}{MAE_{Q1}}
-=
-\frac{0.840}{0.271}
-\approx3.1
+$$ \frac{MAE_{Q4}}{MAE_{Q1}} = \frac{0.840}{0.271} \approx3.1
 $$
 
 Thus, the highest-disagreement quartile had approximately **3.1 times the MAE** of the lowest-disagreement quartile in this test set.
@@ -222,9 +207,7 @@ $$
 whereas:
 
 $$
-\rho(\text{tree disagreement},|\text{error}|)
-=
-+0.437
+\rho(\text{tree disagreement},|\text{error}| = +0.437
 $$
 
 Tree disagreement was therefore more informative about actual prediction error than nearest-neighbor similarity alone.
@@ -240,13 +223,7 @@ Activity-cliff analysis from Day 12 also showed that high structural similarity 
 A more informative assessment of prediction reliability should therefore consider multiple pieces of evidence:
 
 $$
-\boxed{
-\text{chemical-space familiarity}
-+
-\text{model disagreement}
-+
-\text{activity-cliff awareness}
-}
+\boxed{ \text{chemical-space familiarity} + \text{model disagreement} + \text{activity-cliff awareness} }
 $$
 
 The results also demonstrate an important distinction between **ranking predictions by apparent reliability** and constructing **calibrated uncertainty estimates**. Tree disagreement was useful for the former, but has not yet been demonstrated to provide the latter.
