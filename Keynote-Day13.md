@@ -92,9 +92,7 @@ A Random Forest prediction is the average prediction from many individual decisi
 For each test molecule, I calculated the standard deviation of the predictions from all 300 trees:
 
 $$
-\sigma_{\mathrm{trees}}
-=
-\mathrm{std} (\hat y_1,\hat y_2,\ldots,\hat y_{300})
+\sigma_{\mathrm{trees}} = \mathrm{std} (\hat y_1,\hat y_2,\ldots,\hat y_{300})
 $$
 
 My initial hypothesis was that greater disagreement would correspond to larger prediction errors, but I expected the relationship to be relatively weak and perhaps similar to nearest-neighbor similarity.
