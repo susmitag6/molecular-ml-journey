@@ -1,4 +1,4 @@
-# Day 13 — Applicability Domain & Prediction Uncertainty
+# Day 13 : Applicability Domain & Prediction Uncertainty
 **3 October 2026**
 
 ## Research Question
