@@ -1,4 +1,5 @@
-# Date 13 (3rd Oct, 2026) - Applicability Domain & Prediction Uncertainty
+# Date 13  - Applicability Domain & Prediction Uncertainty
+3rd Oct, 2026
 
 High fingerprint similarity indicates that a molecule is well represented in the chosen 2D fingerprint space,
 but it does not guarantee an accurate activity prediction. 
