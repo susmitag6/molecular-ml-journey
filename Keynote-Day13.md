@@ -24,13 +24,13 @@ Activity cliffs may arise from information inadequately represented by the finge
 
 Therefore:
 
-\[
+$$
 \boxed{
 \text{Inside applicability domain}
 \neq
 \text{prediction guaranteed correct}
 }
-\]
+$$
 
 ## Experiment 1 — Chemical-Space Familiarity
 
