@@ -148,10 +148,10 @@ To make the relationship easier to interpret, I divided the 1,258 test molecules
 
 | Disagreement group | n | Mean tree disagreement | MAE | Median absolute error |
 |---|---:|---:|---:|---:|
-| Q1 — lowest | 315 | 0.357 | **0.271** | 0.164 |
+| Q1 - lowest | 315 | 0.357 | **0.271** | 0.164 |
 | Q2 | 314 | 0.563 | **0.387** | 0.273 |
 | Q3 | 314 | 0.771 | **0.561** | 0.448 |
-| Q4 — highest | 315 | 1.142 | **0.840** | 0.678 |
+| Q4 - highest | 315 | 1.142 | **0.840** | 0.678 |
 
 The MAE increased monotonically:
 
