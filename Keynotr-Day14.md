@@ -1,4 +1,4 @@
-# Day 14 — From Model Performance to Scientific Model Evaluation
+# Day 14 : From Model Performance to Scientific Model Evaluation
 **4 October 2026**
 
 ## Main Theme
@@ -6,8 +6,7 @@
 Today I consolidated the different components of the AChE bioactivity-prediction workflow:
 
 $$
-\boxed{
-\text{Representation}
+\boxed{ \text{Representation}
 \rightarrow
 \text{Validation strategy}
 \rightarrow
