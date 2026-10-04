@@ -87,11 +87,7 @@ If the task instead involves predicting additional molecules belonging to alread
 Therefore:
 
 $$
-\boxed{
-\text{Best model}
-=
-\text{model performing best under evaluation relevant to deployment}
-}
+\boxed{\text{Best model} = \text{model performing best under evaluation relevant to deployment}}
 $$
 
 Model quality cannot be separated completely from the scientific problem the model is intended to solve.
