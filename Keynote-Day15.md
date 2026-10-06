@@ -7,7 +7,9 @@ Today I started with the question:
 To make the comparison meaningful, I kept the **count-Morgan fingerprint representation** and the **scaffold-aware data split** fixed while changing the learning algorithm:
 
 $$
-\text{Count Morgan} \rightarrow \begin{cases} \text{Random Forest}\\ \text{Neural Network} \end{cases}
+\text{Count Morgan} \rightarrow \begin{cases} \text{Random Forest}
+\\
+\text{Neural Network} \end{cases}
 $$
 
 This allows me to investigate the effect of the model architecture without simultaneously changing the molecular representation.
