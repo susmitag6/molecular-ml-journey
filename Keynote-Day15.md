@@ -1,4 +1,4 @@
-# Day 15 — Comparing Random Forests and Neural Networks for AChE Activity Prediction
+# Day 15 : Comparing Random Forests and Neural Networks for AChE Activity Prediction
 
 Today I started with the question:
 
@@ -9,7 +9,8 @@ To make the comparison meaningful, I kept the **count-Morgan fingerprint represe
 $$
 \text{Count Morgan} \rightarrow \begin{cases} \text{Random Forest}
 \\
-\text{Neural Network} \end{cases}
+\text{Neural Network} 
+\end{cases}
 $$
 
 This allows me to investigate the effect of the model architecture without simultaneously changing the molecular representation.
