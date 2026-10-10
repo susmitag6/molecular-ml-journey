@@ -1,4 +1,4 @@
-# Day 17 — Training Our First Molecular Graph Neural Network
+# Day 17 - Training Our First Molecular Graph Neural Network
 
 **Project 1:** AChE Bioactivity Prediction  
 **Tools:** RDKit, PyTorch, PyTorch Geometric  
