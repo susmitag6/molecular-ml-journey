@@ -1,4 +1,4 @@
-# Day 19 — Molecular GNN: Mean Pooling vs Sum Pooling
+# Day 18 — Molecular GNN: Mean Pooling vs Sum Pooling
 
 **Objective:** Investigate whether replacing global mean pooling with global sum pooling improves AChE pIC50 prediction and the model's ability to distinguish weak and potent inhibitors.
 
