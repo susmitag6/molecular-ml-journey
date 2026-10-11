@@ -78,11 +78,7 @@ Compound A should generally cross more easily because the charged compound is st
 Passive membrane permeation depends partly on transferring a molecule from an aqueous environment into a hydrophobic membrane.
 
 $$
-\Delta G^\circ_{\mathrm{transfer}}
-=
-G^\circ_{\mathrm{membrane}}
--
-G^\circ_{\mathrm{water}}
+\Delta G^\circ_{\mathrm{transfer}} = G^\circ_{\mathrm{membrane}} - G^\circ_{\mathrm{water}}
 $$
 
 Strong hydration of an ion often makes this transfer less favorable.
@@ -108,9 +104,7 @@ Its IC50 decreases tenfold.
 ### Calculation
 
 $$
-\mathrm{pIC}_{50}
-=
--\log_{10}\left(\mathrm{IC}_{50}\,[\mathrm{M}]\right)
+\mathrm{pIC}_{50} = -\log_{10}\left(\mathrm{IC}_{50}\,[\mathrm{M}]\right)
 $$
 
 For pIC50 = 6:
@@ -269,9 +263,7 @@ $$
 For a simple monoprotic base:
 
 $$
-f_{\mathrm{protonated}}
-=
-\frac{1}{1+10^{\mathrm{pH}-\mathrm{p}K_a}}
+f_{\mathrm{protonated}} = \frac{1}{1+10^{\mathrm{pH}-\mathrm{p}K_a}}
 $$
 
 The protonated fraction is approximately 97.5%.
@@ -285,9 +277,7 @@ logD at pH 7.4 should generally be lower than logP because the protonated form i
 Assuming the ionized form contributes negligibly to octanol partitioning:
 
 $$
-\log D
-\approx
-\log P-\log_{10}(1+10^{\mathrm{p}K_a-\mathrm{pH}})
+\log D \approx \log P-\log_{10}(1+10^{\mathrm{p}K_a-\mathrm{pH}})
 $$
 
 For pKa = 9.0 and pH = 7.4:
