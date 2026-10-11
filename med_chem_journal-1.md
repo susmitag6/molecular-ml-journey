@@ -39,9 +39,7 @@ No. The final binding affinity also depends on three-dimensional geometry, solva
 Binding is determined by the total free-energy difference between bound and unbound states:
 
 $$
-\Delta G^\circ_{\mathrm{bind}}
-=
-RT\ln\left(\frac{K_d}{C^\circ}\right)
+\Delta G^\circ_{\mathrm{bind}} = RT\ln\left(\frac{K_d}{C^\circ}\right)
 $$
 
 A favorable electrostatic interaction does not guarantee stronger overall binding.
