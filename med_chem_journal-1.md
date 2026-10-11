@@ -38,11 +38,11 @@ No. The final binding affinity also depends on three-dimensional geometry, solva
 
 Binding is determined by the total free-energy difference between bound and unbound states:
 
-\[
+$$
 \Delta G^\circ_{\mathrm{bind}}
 =
 RT\ln\left(\frac{K_d}{C^\circ}\right)
-\]
+$$
 
 A favorable electrostatic interaction does not guarantee stronger overall binding.
 
@@ -79,13 +79,13 @@ Compound A should generally cross more easily because the charged compound is st
 
 Passive membrane permeation depends partly on transferring a molecule from an aqueous environment into a hydrophobic membrane.
 
-\[
+$$
 \Delta G^\circ_{\mathrm{transfer}}
 =
 G^\circ_{\mathrm{membrane}}
 -
 G^\circ_{\mathrm{water}}
-\]
+$$
 
 Strong hydration of an ion often makes this transfer less favorable.
 
@@ -109,23 +109,23 @@ Its IC50 decreases tenfold.
 
 ### Calculation
 
-\[
+$$
 \mathrm{pIC}_{50}
 =
 -\log_{10}\left(\mathrm{IC}_{50}\,[\mathrm{M}]\right)
-\]
+$$
 
 For pIC50 = 6:
 
-\[
+$$
 \mathrm{IC}_{50}=10^{-6}\,\mathrm{M}=1000\,\mathrm{nM}
-\]
+$$
 
 For pIC50 = 7:
 
-\[
+$$
 \mathrm{IC}_{50}=10^{-7}\,\mathrm{M}=100\,\mathrm{nM}
-\]
+$$
 
 The compound is therefore ten times more potent in terms of measured IC50.
 
@@ -197,9 +197,9 @@ A compound must generally function in both aqueous and lipid environments.
 
 A simplified partition–diffusion model is:
 
-\[
+$$
 P\approx\frac{KD}{h}
-\]
+$$
 
 where:
 
@@ -220,9 +220,9 @@ Increasing \(K\) alone does not guarantee improved drug exposure.
 
 Lipophilic ligand efficiency provides a simple way to compare potency with lipophilicity:
 
-\[
+$$
 \mathrm{LLE}=\mathrm{pIC}_{50}-\log P
-\]
+$$
 
 Higher LLE can indicate that a compound achieves its potency without requiring as much lipophilicity.
 
@@ -264,17 +264,17 @@ For ionizable compounds, logD depends on pH.
 
 Consider a basic amine:
 
-\[
+$$
 \mathrm{p}K_a=9.0,\qquad \mathrm{pH}=7.4
-\]
+$$
 
 For a simple monoprotic base:
 
-\[
+$$
 f_{\mathrm{protonated}}
 =
 \frac{1}{1+10^{\mathrm{pH}-\mathrm{p}K_a}}
-\]
+$$
 
 The protonated fraction is approximately 97.5%.
 
@@ -286,23 +286,23 @@ logD at pH 7.4 should generally be lower than logP because the protonated form i
 
 Assuming the ionized form contributes negligibly to octanol partitioning:
 
-\[
+$$
 \log D
 \approx
 \log P-\log_{10}(1+10^{\mathrm{p}K_a-\mathrm{pH}})
-\]
+$$
 
 For pKa = 9.0 and pH = 7.4:
 
-\[
+$$
 \log D\approx\log P-1.61
-\]
+$$
 
 If logP = 3.0:
 
-\[
+$$
 \log D\approx1.39
-\]
+$$
 
 **Key lesson:** Protonation can strongly alter the observed distribution of a compound between aqueous and organic environments.
 
