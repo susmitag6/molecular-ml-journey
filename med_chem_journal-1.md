@@ -1,4 +1,4 @@
-# Medicinal Chemistry Learning Journal — Day 1
+# Medicinal Chemistry Learning Journal : Day 1
 
 **Date:** 11 October 2026  
 **Learning track:** Medicinal Chemistry for Computational Drug Discovery  
