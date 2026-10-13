@@ -256,10 +256,10 @@ After filtering for groups containing multiple distinct structures with assigned
 
 The relationship between pIC50 difference and IC50 ratio is:
 
-\[
+$$
 \frac{\mathrm{IC}_{50,\mathrm{higher}}}{\mathrm{IC}_{50,\mathrm{lower}}}
 =10^{|\Delta\mathrm{pIC}_{50}|}
-\]
+$$
 
 Thus:
 
