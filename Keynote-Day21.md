@@ -220,11 +220,7 @@ After identifying partially complementary errors, I tested whether combining the
 I used a simple weighted-average ensemble:
 
 $$
-\hat y_{\mathrm{ensemble}}
-=
-(1-w)\hat y_{\mathrm{RF}}
-+
-w\hat y_{\mathrm{GNN}}
+\hat y_{\mathrm{ensemble}} =(1-w)\hat y_{\mathrm{RF}} + w\hat y_{\mathrm{GNN}}
 $$
 
 where:
