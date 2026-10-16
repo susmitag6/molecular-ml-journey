@@ -1,5 +1,5 @@
 
-# Day 23 — Prediction Uncertainty and Model Reliability
+# Day 23 : Prediction Uncertainty and Model Reliability
 
 **Project 1: AChE Bioactivity Prediction using Molecular Machine Learning**
 
@@ -24,7 +24,7 @@ I inspected the first five trees and found that they all used fingerprint featur
 For every validation molecule, I collected predictions from all 300 trees and calculated their standard deviation:
 
 $$
-u(x)=\operatorname{std}(\hat y_1(x),\ldots,\hat y_{300}(x))
+u(x)=std(\hat y_1(x),\ldots,\hat y_{300}(x))
 $$
 
 The resulting prediction matrix had shape `(930, 300)`.
