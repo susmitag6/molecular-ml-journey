@@ -1,4 +1,4 @@
-# Day 28 : Independent Test Evaluation and Applicability-Domain Generalization
+# Day 28 - Independent Test Evaluation and Applicability-Domain Generalization
 
 **Project 1:** Human Acetylcholinesterase (AChE) Bioactivity Prediction  
 
@@ -105,4 +105,23 @@ This explained why the combined rule underperformed at matched coverage.
 
 4. **Matched-coverage comparisons are necessary.** Comparing selective errors at different coverage levels can produce misleading conclusions.
 
-5. **Negative
+5. **Negative results are scientifically valuable.** Although the combined AD transferred as an error-screening rule, its apparent advantage over uncertainty alone did not survive independent testing.
+
+## Conclusions
+
+Day 28 provided the first independent test results for Project 1.
+
+Tanimoto-SVR remained the strongest overall model, achieving **MAE = 0.548, RMSE = 0.789, and R² = 0.716** on the clean test set.
+
+The frozen combined applicability-domain rule identified 50.6% of test molecules with substantially lower errors than the full test set. However, RF uncertainty alone achieved even lower MAE at the same coverage.
+
+I therefore conclude that RF tree disagreement is a useful empirical reliability indicator in this dataset, while the additional benefit of our particular chemical-similarity constraint remains unsupported by independent testing.
+
+These findings apply to a held-out random test subset, not a strictly unseen-scaffold or external experimental benchmark. I will preserve the original frozen evaluation results and avoid further tuning based on test performance.
+
+## Next Steps — Day 29
+
+1. Use paired bootstrap resampling to estimate confidence intervals for the RF–Tanimoto-SVR test MAE difference.
+2. Examine whether the modest overall advantage of Tanimoto-SVR is statistically robust.
+3. Quantify uncertainty in the applicability-domain performance comparisons.
+4. Continue documenting chemical generalization and limitations for the final portfolio report.
