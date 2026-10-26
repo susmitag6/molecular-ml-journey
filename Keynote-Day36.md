@@ -92,10 +92,7 @@ where \(\mu_k\) is the center of the Gaussian and \(\gamma\) controls its width.
 The scalar distance is expanded into a feature vector:
 
 $$
-d_{ij}\rightarrow
-\boldsymbol\phi(d_{ij})
-=
-[\phi_1(d_{ij}),\ldots,\phi_K(d_{ij})].
+d_{ij}\rightarrow \boldsymbol\phi(d_{ij}) = [\phi_1(d_{ij}),\ldots,\phi_K(d_{ij})].
 $$
 
 This representation provides smooth distance-dependent features that can be processed by a neural network.
