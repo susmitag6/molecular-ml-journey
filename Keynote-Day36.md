@@ -25,9 +25,9 @@ The longer-term goal is to develop the mathematical and computational foundation
 
 A conventional molecular graph is represented as
 
-\[
+$$
 G=(V,E),
-\]
+$$
 
 where atoms correspond to nodes and covalent bonds correspond to edges.
 
@@ -35,15 +35,15 @@ In a spatial molecular graph, edges can instead be constructed using interatomic
 
 For atoms \(i\) and \(j\),
 
-\[
+$$
 d_{ij}=\|\mathbf r_i-\mathbf r_j\|.
-\]
+$$
 
 A spatial connection is introduced when
 
-\[
+$$
 0<d_{ij}<r_c,
-\]
+$$
 
 where \(r_c\) is a selected cutoff radius.
 
@@ -53,29 +53,29 @@ Spatial connections are not necessarily chemical bonds. They indicate that two a
 
 Because
 
-\[
+$$
 d_{ij}=d_{ji},
-\]
+$$
 
 the spatial adjacency matrix is symmetric:
 
-\[
+$$
 A_{ij}=A_{ji}.
-\]
+$$
 
 Each undirected edge appears twice in the adjacency matrix.
 
 Consequently,
 
-\[
+$$
 |E|=\frac{1}{2}\sum_{i,j}A_{ij}.
-\]
+$$
 
 Equivalently, the sum of node degrees satisfies the handshaking lemma:
 
-\[
+$$
 \sum_i \deg(i)=2|E|.
-\]
+$$
 
 ### 2.3 Gaussian radial basis functions
 
@@ -83,20 +83,20 @@ A binary adjacency matrix identifies neighboring atoms but does not describe the
 
 To construct continuous geometric edge features, Gaussian radial basis functions were introduced:
 
-\[
+$$
 \phi_k(d)=\exp[-\gamma(d-\mu_k)^2],
-\]
+$$
 
 where \(\mu_k\) is the center of the Gaussian and \(\gamma\) controls its width.
 
 The scalar distance is expanded into a feature vector:
 
-\[
+$$
 d_{ij}\rightarrow
 \boldsymbol\phi(d_{ij})
 =
 [\phi_1(d_{ij}),\ldots,\phi_K(d_{ij})].
-\]
+$$
 
 This representation provides smooth distance-dependent features that can be processed by a neural network.
 
@@ -104,24 +104,24 @@ This representation provides smooth distance-dependent features that can be proc
 
 A simplified distance-dependent message was defined as
 
-\[
+$$
 m_{ij}=Z_jw(d_{ij}),
-\]
+$$
 
 where \(Z_j\) is the atomic number of neighboring atom \(j\).
 
 The distance-dependent filter was constructed as
 
-\[
+$$
 w(d_{ij})=
 \sum_k a_k\phi_k(d_{ij}).
-\]
+$$
 
 Messages were aggregated over spatial neighbors:
 
-\[
+$$
 m_i=\sum_{j\in\mathcal N(i)}m_{ij}.
-\]
+$$
 
 This provides a simplified illustration of the continuous-filter message-passing principle used in SchNet.
 
@@ -129,9 +129,9 @@ This provides a simplified illustration of the continuous-filter message-passing
 
 Because the message function depends only on atomic identities and interatomic distances, the aggregated scalar message should remain invariant under global translations and rotations:
 
-\[
+$$
 m_i(Q\mathbf R+\mathbf t)=m_i(\mathbf R).
-\]
+$$
 
 This invariance is built into the mathematical representation.
 
@@ -199,9 +199,9 @@ Investigated how the spatial graph changes as the cutoff radius increases.
 
 For nine atoms, the maximum number of undirected edges without self-connections is
 
-\[
+$$
 E_{\max}=\frac{N(N-1)}{2}=36.
-\]
+$$
 
 At a cutoff of 3.0 Å, the spatial graph therefore contained 30 of the 36 possible edges.
 
@@ -213,15 +213,15 @@ A larger cutoff increases the number of potential message-passing interactions, 
 
 Used the C–C distance
 
-\[
+$$
 d_{\mathrm{CC}}=1.505851346\ \text{Å}
-\]
+$$
 
 with Gaussian centers
 
-\[
+$$
 \boldsymbol\mu=[0,\ 0.75,\ 1.5,\ 2.25,\ 3.0]\ \text{Å}
-\]
+$$
 
 and \(\gamma=2.0\) in consistent inverse-square distance units.
 
@@ -256,9 +256,9 @@ Implemented a scalar message-passing operation using atomic numbers and fixed Ga
 
 The coefficients were
 
-\[
+$$
 \mathbf a=[0.1,\ 0.3,\ 1.0,\ 0.3,\ 0.1].
-\]
+$$
 
 Messages received by the first carbon atom were:
 
@@ -271,9 +271,9 @@ Messages received by the first carbon atom were:
 
 The total aggregated message was
 
-\[
+$$
 \boxed{m_0=10.194261159545166}.
-\]
+$$
 
 The carbon neighbor contributed the largest message because its atomic number was six, compared with one for hydrogen, and because of the selected distance-dependent filter.
 
@@ -312,11 +312,11 @@ Today's exercises demonstrated how molecular graph learning can be extended to i
 
 A simplified SchNet-style continuous-filter convolution can be expressed as
 
-\[
+$$
 \mathbf m_i=
 \sum_{j\in\mathcal N(i)}
 \mathbf h_j\odot W_\theta(d_{ij}),
-\]
+$$
 
 where \(\mathbf h_j\) is a learned atomic feature vector and \(W_\theta\) is a learned distance-dependent filter.
 
