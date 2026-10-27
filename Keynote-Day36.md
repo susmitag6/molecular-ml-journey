@@ -395,6 +395,74 @@ The cutoff-radius analysis also demonstrated that spatial graph construction inv
 
 The final invariance test showed that symmetry-preserving geometric representations can be constructed directly from physically meaningful quantities.
 
+### Additional Scientific Discussion — Why Use Gaussian Radial Basis Functions Instead of Raw Interatomic Distances?
+
+**Central question:** What is the advantage of representing interatomic distances using Gaussian radial basis functions rather than supplying the scalar distance directly to a geometric neural network?
+
+The primary motivation is to make it easier for a neural network to learn complex, nonlinear, distance-dependent interactions.
+
+A molecular interaction can vary strongly with interatomic separation. For example, the Lennard-Jones potential,
+
+$$
+V(r)=4\epsilon\left[\left(\frac{\sigma}{r}\right)^{12}-\left(\frac{\sigma}{r}\right)^6\right],
+$$
+
+contains a strongly repulsive short-range region and an attractive region at larger separations. Learning such nonlinear behavior directly from a scalar distance is possible, but an appropriate basis expansion can provide a more convenient representation.
+
+Gaussian radial basis functions transform a scalar distance into a vector of smooth, localized features:
+
+$$
+\phi_k(r)=\exp[-\gamma(r-\mu_k)^2],
+$$
+
+where \(\mu_k\) specifies the center of each Gaussian and \(\gamma\) controls its width.
+
+For the C–C bond in ethanol, the Day 36 calculation gave
+
+$$
+r_{\mathrm{CC}}=1.50585\ \text{Å}
+$$
+
+and
+
+$$
+\boldsymbol\phi(r_{\mathrm{CC}})
+=
+[0.0107,\ 0.3190,\ 0.9999,\ 0.3304,\ 0.0115].
+$$
+
+The Gaussian centered at 1.5 Å had the highest activation because its center was closest to the C–C bond distance. Neighboring Gaussians also contributed, producing a smooth, overlapping representation.
+
+**Connection to mathematical physics:** This approach is analogous to expanding an unknown function in a set of basis functions:
+
+$$
+f(r)\approx\sum_{k=1}^{K}a_k\phi_k(r).
+$$
+
+The coefficients \(a_k\) can be learned from molecular data, allowing the model to construct flexible distance-dependent filters. Unlike a Fourier expansion, Gaussian basis functions are localized around particular distance ranges.
+
+In a SchNet-style continuous-filter convolution, the radial basis features are processed by a learnable neural network:
+
+$$
+r_{ij}
+\rightarrow
+\boldsymbol\phi(r_{ij})
+\rightarrow
+$$
+
+The resulting filter controls the contribution of neighboring atom \(j\) to the representation of atom \(i\).
+
+**Important scientific distinctions:**
+
+- Gaussian RBF expansion does not introduce new physical information; it re-expresses the original interatomic distance.
+- A sufficiently expressive neural network can also learn nonlinear interactions directly from scalar distances. Gaussian expansion is a useful modeling choice, not a mathematical necessity.
+- Both raw distances and Gaussian RBF features preserve rotational and translational invariance because they depend only on interatomic separations.
+- Gaussian expansion does not automatically guarantee physical accuracy, correct force behavior, or smoothness at a hard cutoff. These depend on the overall model architecture and training procedure.
+
+**Key scientific takeaway:** Gaussian radial basis functions provide a smooth, localized basis for representing distance-dependent interactions. From a statistical physics perspective, their role is best understood as a basis-function representation of an unknown interaction kernel, making nonlinear geometric relationships more convenient for a neural network to learn.
+
+This understanding provides a direct conceptual bridge to Day 37, where fixed Gaussian filter coefficients will be replaced by learnable neural-network parameters.
+
 I now have a clearer understanding of the computational foundations underlying SchNet-style continuous-filter convolutions.
 
 **Day 36 completed successfully.**
