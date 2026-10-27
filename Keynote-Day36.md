@@ -310,9 +310,7 @@ Today's exercises demonstrated how molecular graph learning can be extended to i
 A simplified SchNet-style continuous-filter convolution can be expressed as
 
 $$
-\mathbf m_i=
-\sum_{j\in\mathcal N(i)}
-\mathbf h_j\odot W_\theta(d_{ij}),
+\mathbf m_i= \sum_{j\in\mathcal N(i)} \mathbf h_j\odot W_\theta(d_{ij}),
 $$
 
 where \(\mathbf h_j\) is a learned atomic feature vector and \(W_\theta\) is a learned distance-dependent filter.
