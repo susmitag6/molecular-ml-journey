@@ -440,10 +440,7 @@ The coefficients \(a_k\) can be learned from molecular data, allowing the model 
 In a SchNet-style continuous-filter convolution, the radial basis features are processed by a learnable neural network:
 
 $$
-r_{ij}
-\rightarrow
-\boldsymbol\phi(r_{ij})
-\rightarrow
+r_{ij} \rightarrow \boldsymbol\phi(r_{ij}) \rightarrow
 $$
 
 The resulting filter controls the contribution of neighboring atom \(j\) to the representation of atom \(i\).
