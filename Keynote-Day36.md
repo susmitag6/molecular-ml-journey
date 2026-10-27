@@ -424,9 +424,7 @@ $$
 and
 
 $$
-\boldsymbol\phi(r_{\mathrm{CC}})
-=
-[0.0107,\ 0.3190,\ 0.9999,\ 0.3304,\ 0.0115].
+\boldsymbol\phi(r_{\mathrm{CC}}) = [0.0107,\ 0.3190,\ 0.9999,\ 0.3304,\ 0.0115].
 $$
 
 The Gaussian centered at 1.5 Å had the highest activation because its center was closest to the C–C bond distance. Neighboring Gaussians also contributed, producing a smooth, overlapping representation.
