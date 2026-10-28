@@ -615,8 +615,7 @@ The completed exercises implemented a simplified form of continuous-filter messa
 The full operation can be summarized as
 
 $$
-\boxed{ \begin{aligned}
-\mathbf h_i^{(0)}
+\boxed{ \begin{aligned} \mathbf h_i^{(0)}
 &=E_\theta(Z_i),\\[4pt]
 \mathbf m_{ij}
 &=\mathbf h_j^{(0)}
@@ -628,7 +627,7 @@ W_\theta(\boldsymbol\phi(d_{ij})),\\[4pt]
 &=\mathbf h_i^{(0)}+\mathbf m_i.
 \end{aligned}
 }
-\]
+$$
 
 This formulation has several desirable structural properties.
 
@@ -656,20 +655,20 @@ In particular, the residual update was simplified, and no end-to-end molecular p
 
 An atomic embedding represents the element:
 
-\[
+$$
 \mathbf h_i^{(0)}=E_\theta(Z_i).
-\]
+$$
 
 An updated atomic representation includes local-environment information:
 
-\[
+$$
 \mathbf h_i^{(1)}
 =
 f_\theta
 \left(
 Z_i,\{Z_j,d_{ij}\}_{j\in\mathcal N(i)}
 \right).
-\]
+$$
 
 These are not equivalent concepts.
 
