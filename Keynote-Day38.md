@@ -39,9 +39,9 @@ The molecular system was the ethanol conformer generated on Day 35 using RDKit.
 
 The molecule contained nine atoms, including explicit hydrogens:
 
-\[
+$$
 \mathrm{CH_3-CH_2-OH}
-\]
+$$
 
 The atomic numbers were:
 
@@ -62,10 +62,10 @@ The atom indexing was:
 
 The spatial graph was defined using an interatomic distance cutoff of 2.0 Å:
 
-\[
+$$
 \mathcal N(i)=
 \{j\ne i:d_{ij}<2.0\ \text{Å}\}.
-\]
+$$
 
 The distance-filter network from Day 37 was reused:
 
@@ -81,21 +81,21 @@ The network received five Gaussian radial basis features and produced a four-dim
 
 The existing Gaussian basis was
 
-\[
+$$
 \phi_k(d)=\exp[-\gamma(d-\mu_k)^2],
-\]
+$$
 
 with centers
 
-\[
+$$
 \boldsymbol\mu=[0,\ 0.75,\ 1.5,\ 2.25,\ 3.0]\ \text{Å}
-\]
+$$
 
 and width parameter
 
-\[
+$$
 \gamma=2.0\ \text{Å}^{-2}.
-\]
+$$
 
 The experiments used PyTorch, NumPy, RDKit, and the previously computed ethanol distance matrix.
 
@@ -109,41 +109,35 @@ The atomic number \(Z_i\) identifies the chemical element of atom \(i\).
 
 For ethanol:
 
-\[
-Z_{\mathrm C}=6,\qquad
-Z_{\mathrm O}=8,\qquad
-Z_{\mathrm H}=1.
-\]
+$$
+Z_{\mathrm C}=6,\qquad Z_{\mathrm O}=8,\qquad Z_{\mathrm H}=1.
+$$
 
 An atomic number is an element identifier, but using it directly as a continuous scalar input may suggest an artificial numerical relationship between elements.
 
 A learned embedding instead maps each element to a trainable feature vector:
 
-\[
-\boxed{
-\mathbf h_i^{(0)}
-=
-E_\theta(Z_i)
-}
-\]
+$$
+\boxed{\mathbf h_i^{(0)} = E_\theta(Z_i)}
+$$
 
 where
 
-\[
+$$
 \mathbf h_i^{(0)}\in\mathbb R^F.
-\]
+$$
 
 For this exercise, the embedding dimension was
 
-\[
+$$
 F=4.
-\]
+$$
 
 The embedding table was a trainable matrix:
 
-\[
+$$
 E_\theta\in\mathbb R^{10\times4}.
-\]
+$$
 
 Each atomic number selects a row of this matrix.
 
@@ -153,11 +147,9 @@ The embedding values are initially random. They do not automatically correspond 
 
 Because the embedding lookup depends only on atomic number,
 
-\[
-Z_i=Z_j
-\quad\Longrightarrow\quad
-\mathbf h_i^{(0)}=\mathbf h_j^{(0)}.
-\]
+$$
+Z_i=Z_j \quad\Longrightarrow\quad \mathbf h_i^{(0)}=\mathbf h_j^{(0)}.
+$$
 
 Therefore, the two carbon atoms in ethanol initially receive identical feature vectors.
 
@@ -174,15 +166,9 @@ That distinction emerges through message passing.
 
 The message from atom \(j\) to atom \(i\) was defined as
 
-\[
-\boxed{
-\mathbf m_{ij}
-=
-\mathbf h_j^{(0)}
-\odot
-W_\theta(\boldsymbol\phi(d_{ij}))
-}
-\]
+$$
+\boxed{ \mathbf m_{ij} = \mathbf h_j^{(0)} \odot W_\theta(\boldsymbol\phi(d_{ij})) }
+$$
 
 where:
 
@@ -202,25 +188,15 @@ For the same element, different distances can generate different messages becaus
 
 Messages from all neighbors of atom \(i\) were summed:
 
-\[
-\boxed{
-\mathbf m_i
-=
-\sum_{j\in\mathcal N(i)}
-\mathbf m_{ij}
-}
-\]
+$$
+\boxed{\mathbf m_i = \sum_{j\in\mathcal N(i)} \mathbf m_{ij}}
+$$
 
 or equivalently,
 
-\[
-\mathbf m_i
-=
-\sum_{j\in\mathcal N(i)}
-\mathbf h_j^{(0)}
-\odot
-W_\theta(\boldsymbol\phi(d_{ij})).
-\]
+$$
+\mathbf m_i = \sum_{j\in\mathcal N(i)} \mathbf h_j^{(0)} \odot W_\theta(\boldsymbol\phi(d_{ij})).
+$$
 
 This produces a fixed-dimensional representation of the local environment.
 
@@ -230,13 +206,10 @@ The summation is independent of neighbor ordering, an important property for gra
 
 The aggregated message was incorporated into the atom's existing representation through a simple residual update:
 
-\[
-\boxed{
-\mathbf h_i^{(1)}
-=
-\mathbf h_i^{(0)}+\mathbf m_i
+$$
+\boxed{\mathbf h_i^{(1)} = \mathbf h_i^{(0)}+\mathbf m_i
 }
-\]
+$$
 
 This combines the initial element identity with information received from neighboring atoms.
 
@@ -317,25 +290,21 @@ The second task was to calculate a message from carbon atom 1 to carbon atom 0.
 
 The C–C distance was
 
-\[
+$$
 d_{01}=1.5059\ \text{Å}.
-\]
+$$
 
 The sending atom's embedding was
 
-\[
-\mathbf h_1^{(0)}
-=
-[0.0349,\ 0.3211,\ 1.5736,\ -0.8455].
-\]
+$$
+\mathbf h_1^{(0)} = [0.0349,\ 0.3211,\ 1.5736,\ -0.8455].
+$$
 
 The distance-dependent filter was
 
-\[
-W_\theta(d_{01})
-=
-[-0.3505,\ -0.1570,\ 0.3958,\ -0.2568].
-\]
+$$
+W_\theta(d_{01}) = [-0.3505,\ -0.1570,\ 0.3958,\ -0.2568].
+$$
 
 The message was calculated using elementwise multiplication:
 
@@ -364,22 +333,15 @@ torch.Size([4])
 
 Thus,
 
-\[
-\boxed{
-\mathbf m_{01}
-=
-[-0.0122,\ -0.0504,\ 0.6229,\ 0.2172]
-}
-\]
+$$
+\boxed{\mathbf m_{01} = [-0.0122,\ -0.0504,\ 0.6229,\ 0.2172]}
+$$
 
 The third channel illustrates the calculation:
 
-\[
-m_{01,3}
-\approx
-1.5736\times0.3958
-\approx0.6229.
-\]
+$$
+m_{01,3} \approx 1.5736\times0.3958 \approx0.6229.
+$$
 
 **Scientific interpretation**
 
@@ -419,19 +381,15 @@ Are the messages identical? False
 
 Mathematically,
 
-\[
-\mathbf m_{\mathrm C}(d)
-=
-\mathbf h_{\mathrm C}\odot W_\theta(d)
-\]
+$$
+\mathbf m_{\mathrm C}(d) = \mathbf h_{\mathrm C}\odot W_\theta(d)
+$$
 
 and
 
-\[
-\mathbf m_{\mathrm H}(d)
-=
-\mathbf h_{\mathrm H}\odot W_\theta(d).
-\]
+$$
+\mathbf m_{\mathrm H}(d) = \mathbf h_{\mathrm H}\odot W_\theta(d).
+$$
 
 Because the distance was fixed, the filter was identical in both cases.
 
@@ -439,15 +397,15 @@ The different messages therefore arose from the different element embeddings.
 
 For the third channel,
 
-\[
+$$
 m_{\mathrm C,3}\approx0.6229,
-\]
+$$
 
 whereas
 
-\[
+$$
 m_{\mathrm H,3}\approx-0.0170.
-\]
+$$
 
 **Scientific interpretation**
 
@@ -465,21 +423,17 @@ The cutoff was 2.0 Å.
 
 The neighbors were:
 
-\[
+$$
 \mathcal N(0)=\{1,3,4,5\}.
-\]
+$$
 
 This neighborhood contained one carbon and three hydrogen atoms.
 
 For each neighbor, the calculation was
 
-\[
-\mathbf m_{0j}
-=
-\mathbf h_j^{(0)}
-\odot
-W_\theta(\boldsymbol\phi(d_{0j})).
-\]
+$$
+\mathbf m_{0j} = \mathbf h_j^{(0)} \odot W_\theta(\boldsymbol\phi(d_{0j})).
+$$
 
 The observed messages were:
 
@@ -502,13 +456,10 @@ torch.Size([4])
 
 Therefore,
 
-\[
-\boxed{
-\mathbf m_0
-=
-[-0.6861,\ 0.7124,\ 0.5809,\ 1.4001]
-}
-\]
+$$
+\boxed{\mathbf m_0 =
+[-0.6861,\ 0.7124,\ 0.5809,\ 1.4001]}
+$$
 
 **Scientific interpretation**
 
@@ -526,11 +477,9 @@ The fifth task was to combine carbon atom 0's initial embedding with its aggrega
 
 The residual update was
 
-\[
-\mathbf h_0^{(1)}
-=
-\mathbf h_0^{(0)}+\mathbf m_0.
-\]
+$$
+\mathbf h_0^{(1)} = \mathbf h_0^{(0)}+\mathbf m_0.
+$$
 
 The observed output was:
 
@@ -553,13 +502,10 @@ True
 
 The updated representation was
 
-\[
-\boxed{
-\mathbf h_0^{(1)}
-=
-[-0.6512,\ 1.0335,\ 2.1545,\ 0.5546]
+$$
+\boxed{\mathbf h_0^{(1)} = [-0.6512,\ 1.0335,\ 2.1545,\ 0.5546]
 }
-\]
+$$
 
 **Scientific interpretation**
 
@@ -579,9 +525,9 @@ The final task was to determine whether the two carbon atoms in ethanol would ac
 
 Initially,
 
-\[
+$$
 \mathbf h_0^{(0)}=\mathbf h_1^{(0)}
-\]
+$$
 
 because both atoms have atomic number 6.
 
@@ -589,17 +535,17 @@ However, their local environments differ.
 
 For carbon 0:
 
-\[
+$$
 \mathcal N(0)=\{1,3,4,5\},
-\]
+$$
 
 containing one carbon and three hydrogens.
 
 For carbon 1:
 
-\[
+$$
 \mathcal N(1)=\{0,2,6,7\},
-\]
+$$
 
 containing one carbon, one oxygen, and two hydrogens.
 
@@ -628,21 +574,16 @@ Updated carbon embeddings identical? False
 
 Therefore,
 
-\[
-\boxed{
-\mathbf h_0^{(1)}
-\ne
-\mathbf h_1^{(1)}
+$$
+\boxed{\mathbf h_0^{(1)} \ne \mathbf h_1^{(1)}
 }
-\]
+$$
 
 even though
 
-\[
-\mathbf h_0^{(0)}
-=
-\mathbf h_1^{(0)}.
-\]
+$$
+\mathbf h_0^{(0)} = \mathbf h_1^{(0)}.
+$$
 
 The updated representations were:
 
@@ -673,9 +614,8 @@ The completed exercises implemented a simplified form of continuous-filter messa
 
 The full operation can be summarized as
 
-\[
-\boxed{
-\begin{aligned}
+$$
+\boxed{ \begin{aligned}
 \mathbf h_i^{(0)}
 &=E_\theta(Z_i),\\[4pt]
 \mathbf m_{ij}
