@@ -513,4 +513,22 @@ The work will continue through small coding exercises, with numerical output int
 
 Today I progressed from fixed distance-dependent message passing to learnable geometric neural-network components.
 
+The most important mathematical insight was that Gaussian radial basis functions not only provide smooth distance features but also determine the sensitivity of filter parameters to particular interatomic distances.
+
+Verifying the PyTorch gradients against analytical derivatives helped connect automatic differentiation with familiar concepts from numerical optimization and mathematical physics.
+
+Training a scalar filter using gradient descent demonstrated how the model can adjust its parameters, while also highlighting the distinction between successful numerical optimization and physically meaningful learning.
+
+The extension to a nonlinear four-channel filter showed how a single interatomic distance can influence multiple components of an atomic representation.
+
+Aggregating messages from ethanol's neighboring atoms provided a concrete implementation of continuous-filter message passing.
+
+Finally, the invariance tests confirmed that learnable geometric operations can preserve physical symmetries through their mathematical construction.
+
+Day 37 completed successfully.
+
+The next stage is to incorporate learned atomic embeddings and build a more complete SchNet-style interaction mechanism.
+
+Today I progressed from fixed distance-dependent message passing to learnable geometric neural-network components.
+
 The most important mathematical insight was that Gaussian radial basis functions not only provide
