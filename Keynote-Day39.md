@@ -273,10 +273,7 @@ Since the model uses atomic identities and interatomic distances, its scalar ato
 
 $$
 \boxed{
-H^{(2)}(R\mathbf r+\mathbf t)
-=
-H^{(2)}(\mathbf r)
-}
+H^{(2)}(R\mathbf r+\mathbf t) = H^{(2)}(\mathbf r) }
 $$
 
 ### Computational test
