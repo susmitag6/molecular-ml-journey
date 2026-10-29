@@ -154,11 +154,7 @@ After two layers, information can also arrive through those neighbors from atoms
 For the second layer, I implemented:
 
 $$
-\boxed{
-H^{(2)}
-=
-H^{(1)}+M(H^{(1)},D)
-}
+\boxed{H^{(2)}=H^{(1)}+M(H^{(1)},D)}
 $$
 
 The crucial difference is that the second layer uses \(H^{(1)}\), not the original embeddings \(H^{(0)}\).
