@@ -112,9 +112,7 @@ I additionally verified that the generalized implementation reproduced the earli
 After constructing the complete message matrix, I updated every atomic representation using a residual connection:
 
 $$
-\boxed{
-H^{(1)}=H^{(0)}+M(H^{(0)},D)
-}
+\boxed{H^{(1)}=H^{(0)}+M(H^{(0)},D)}
 $$
 
 where \(D\) is the pairwise distance matrix.
