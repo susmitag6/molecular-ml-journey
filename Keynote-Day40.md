@@ -308,15 +308,7 @@ When `.backward()` is called, it applies the chain rule to propagate derivatives
 For a prediction head,
 
 $$
-\mathbf h_{\mathrm{mol}}
-\rightarrow
-\mathbf z
-\rightarrow
-\mathbf a
-\rightarrow
-\hat y
-\rightarrow
-\mathcal L,
+\mathbf h_{\mathrm{mol}} \rightarrow \mathbf z \rightarrow \mathbf a \rightarrow \hat y \rightarrow \mathcal L,
 $$
 
 the backward pass follows the reverse dependency structure.
@@ -538,14 +530,7 @@ The full architecture developed across Days 35–40 can now be written as
 
 $$
 \boxed{
-\hat y
-=
-f_\theta
-\left(
-\sum_{i=1}^{N}
-\mathbf h_i^{(L)}
-\right)
-}
+\hat y = f_\theta \left( \sum_{i=1}^{N} \mathbf h_i^{(L)} \right)}
 $$
 
 where the atomic features are generated through geometric message passing:
