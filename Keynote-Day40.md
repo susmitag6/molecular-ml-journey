@@ -53,10 +53,7 @@ This operation is called **molecular readout** or **global pooling**.
 I implemented the readout
 
 $$
-\boxed{
-\mathbf h_{\mathrm{mol}}
-\sum_{i=1}^{N}\mathbf h_i^{(L)}
-}
+\boxed{\mathbf h_{\mathrm{mol}} \sum_{i=1}^{N}\mathbf h_i^{(L)}}
 $$
 
 using PyTorch:
@@ -77,11 +74,9 @@ The molecular representation should not depend on how atoms are numbered.
 
 For any permutation \(\pi\),
 
-\[
-\sum_i\mathbf h_i
-=
-\sum_i\mathbf h_{\pi(i)}.
-\]
+$$
+\sum_i\mathbf h_i = \sum_i\mathbf h_{\pi(i)}.
+$$
 
 I tested this by randomly rearranging the rows of the atomic feature matrix and recalculating the sum.
 
@@ -104,9 +99,7 @@ A prediction architecture must learn how the representation relates to the targe
 Mean pooling provides another option:
 
 $$
-\mathbf h_{\mathrm{mol}}
-=
-\frac{1}{N}\sum_i\mathbf h_i.
+\mathbf h_{\mathrm{mol}} = \frac{1}{N}\sum_i\mathbf h_i.
 $$
 
 Sum pooling retains information about the overall magnitude and number of atomic contributions, while mean pooling normalizes by molecular size.
@@ -123,11 +116,9 @@ Once the molecular representation has been constructed, a neural network can map
 
 Mathematically,
 
-\[
-\boxed{
-\hat y=f_\theta(\mathbf h_{\mathrm{mol}})
-}
-\]
+$$
+\boxed{\hat y=f_\theta(\mathbf h_{\mathrm{mol}})}
+$$
 
 where \(f_\theta\) is a trainable prediction function.
 
@@ -170,9 +161,7 @@ Without a nonlinear activation, successive linear transformations collapse into 
 For example,
 
 $$
-W_2(W_1\mathbf x+\mathbf b_1)+\mathbf b_2
-=
-W_{\mathrm{eff}}\mathbf x+\mathbf b_{\mathrm{eff}}.
+W_2(W_1\mathbf x+\mathbf b_1)+\mathbf b_2 = W_{\mathrm{eff}}\mathbf x+\mathbf b_{\mathrm{eff}}.
 $$
 
 Consequently, stacking linear layers alone does not introduce nonlinear expressive power.
@@ -188,13 +177,7 @@ An important concept introduced today was **SiLU**, the Sigmoid Linear Unit.
 Its mathematical definition is
 
 $$
-\boxed{
-\operatorname{SiLU}(x)
-=
-x\sigma(x)
-=
-\frac{x}{1+e^{-x}}
-}
+\boxed{\operatorname{SiLU}(x) = x\sigma(x) = \frac{x}{1+e^{-x}} }
 $$
 
 where \(\sigma(x)\) is the sigmoid function.
@@ -239,11 +222,7 @@ the number of parameters is
 
 $$
 \boxed{
-N_{\mathrm{parameters}}
-=
-N_{\mathrm{in}}N_{\mathrm{out}}
-+
-N_{\mathrm{out}}
+N_{\mathrm{parameters}} = N_{\mathrm{in}}N_{\mathrm{out}} + N_{\mathrm{out}}
 }
 $$
 
@@ -273,15 +252,9 @@ A prediction head produces an output, but training requires a reference target a
 
 For a regression problem, I used the mean squared error (MSE):
 
-\[
-\boxed{
-\mathcal L
-=
-\frac{1}{B}
-\sum_{k=1}^{B}
-(\hat y_k-y_k)^2
-}
-\]
+$$
+\boxed{ \mathcal L = \frac{1}{B} \sum_{k=1}^{B} (\hat y_k-y_k)^2}
+$$
 
 where \(B\) is the number of training examples.
 
@@ -387,13 +360,7 @@ After computing gradients, I performed an optimization step using stochastic gra
 The mathematical update rule is
 
 $$
-\boxed{
-\theta_{t+1}
-=
-\theta_t
--
-\eta\nabla_\theta\mathcal L
-}
+\boxed{ \theta_{t+1} = \theta_t - \eta\nabla_\theta\mathcal L }
 $$
 
 where \(\eta\) is the learning rate.
@@ -584,14 +551,7 @@ $$
 where the atomic features are generated through geometric message passing:
 
 $$
-\mathbf h_i^{(\ell+1)}
-=
-\mathbf h_i^{(\ell)}
-+
-\sum_{j\in\mathcal N(i)}
-\mathbf h_j^{(\ell)}
-\odot
-W_\phi\bigl(\boldsymbol\phi(d_{ij})\bigr).
+\mathbf h_i^{(\ell+1)} =\mathbf h_i^{(\ell)} + \sum_{j\in\mathcal N(i)} \mathbf h_j^{(\ell)} \odot W_\phi\bigl(\boldsymbol\phi(d_{ij})\bigr).
 $$
 
 The model therefore consists of four major stages.
