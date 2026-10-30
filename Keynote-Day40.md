@@ -176,9 +176,6 @@ An important concept introduced today was **SiLU**, the Sigmoid Linear Unit.
 
 Its mathematical definition is
 
-$$
-\boxed{\operatorname{SiLU}(x) = x\sigma(x) = \frac{x}{1+e^{-x}} }
-$$
 
 where \(\sigma(x)\) is the sigmoid function.
 
