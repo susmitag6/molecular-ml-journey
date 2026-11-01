@@ -296,8 +296,7 @@ This identified a possible source of nonsmooth behavior in the model's energy re
 Studied the cosine cutoff:
 
 $$
-f_c(r)= \begin{cases} \frac12\left[\cos(\pi r/r_c)+1\right],&r<r_c,\\ 0,&r\ge r_c.
-\end{cases}
+f_c(r)= \begin{cases} \frac12\left[\cos(\pi r/r_c)+1\right],&r<r_c,\\ 0,&r\ge r_c. \end{cases}
 $$
 
 At a cutoff radius of 2.0 Å:
